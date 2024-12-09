@@ -1,0 +1,32 @@
+﻿@model IEnumerable<GroceryManagement1.Models.Inventory>
+
+<div class="product-list">
+    <div id="cart-count">Cart (0)</div>
+
+    <!-- Cart view to display added items -->
+    <div id="cart-view" class="cart-view">
+        <p>No items in cart</p>
+    </div>
+    <div class="cart-view-link">
+        <button onclick="redirectToCart()">View Cart</button>
+    </div>
+
+    @foreach (var item in Model)
+    {
+        <div class="product">
+            <img src="@Url.Content(item.ImageUrl)" alt="@item.Product" width="150" />
+            <h3>@item.Product</h3>
+            <p>@item.Description</p>
+            <p><strong>Price:</strong> $@item.Price.ToString("C")</p>
+            <button onclick="decreaseQuantity('@item.ProductId')">-</button>
+            <span id="quantity-@item.ProductId">0</span>
+            <button onclick="increaseQuantity('@item.ProductId')">+</button>
+
+            <button onclick="addToCart('@item.ProductId')">Add to Cart</button>
+        </div>
+    }
+</div>
+@*<script src="~/Scripts/viewCart.js"></script>*@
+<script src="~/Scripts/Inventory.js"></script>
+
+@*<script src="~/Scripts/viewCart.js"></script>*@

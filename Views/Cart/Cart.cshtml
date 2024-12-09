@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "View Cart";
+}
+
+<form action="@Url.Action("PlaceOrder", "Cart")" method="post">
+    <h2>Your Cart</h2>
+    <div id="cart-container">
+        <div id="cart-items">
+            <h3>Items in Your Cart</h3>
+        </div>
+        <div id="cart-total">
+            <h3>Total: $<span id="cart-total-value">0.00</span></h3>
+        </div>
+        <input type="hidden" id="totalAmount" name="totalAmount" />
+        <div id="hidden-cart-inputs"></div>
+        <button type="submit" onclick="setTotalValue()">Checkout with PayPal</button>
+    </div>
+</form>
+    @*<script src="~/Scripts/Inventory.js"></script>*@
+    <script src="~/Scripts/Cart1.js"></script>
+    <script src="~/Scripts/Inventory.js"></script>
+
+    <script type="text/javascript">
+        // Function to set the total value to the hidden input field
+        function setTotalValue() {
+            var totalValue = document.getElementById("cart-total-value").innerText;
+            document.getElementById("totalAmount").value = totalValue; // Set the value to the hidden input
+        }
+    </script>
+

@@ -1,0 +1,20 @@
+﻿@model GroceryManagement1.Models.User
+
+@using (Html.BeginForm())
+{
+    <div>
+        @Html.LabelFor(u => u.Username)
+        @Html.TextBoxFor(u => u.Username)
+    </div>
+    <div>
+
+
+        @Html.LabelFor(u => u.Password)
+        @Html.PasswordFor(u => u.Password)
+    </div>
+    <div>
+        @Html.LabelFor(u => u.IsPremium)
+        @Html.CheckBoxFor(u => u.IsPremium)
+    </div>
+    <button type="submit">Register</button>
+}
